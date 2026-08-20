@@ -62,7 +62,7 @@ export default function CalendarView({ invoices, products, onBookForDate, setAct
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">Sales Calendar</h1>
-        <p className="text-slate-500 dark:text-slate-405 mt-1 text-sm">Track daily sales volume, monitor cash flows, and record new client transactions.</p>
+        <p className="text-slate-500 dark:text-slate-400 mt-1 text-sm">Track daily sales volume, monitor cash flows, and record new client transactions.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

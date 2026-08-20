@@ -364,7 +364,7 @@ export default function Invoices({
                                 setSelectedInvoice(inv);
                                 setViewMode("view");
                               }}
-                              className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-indigo-55 hover:text-indigo-600 dark:hover:bg-indigo-950/40 text-slate-600 dark:text-slate-400 rounded-xl transition-all cursor-pointer shadow-sm border border-slate-200/40 dark:border-slate-800"
+                              className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-indigo-50 hover:text-indigo-600 dark:hover:bg-indigo-950/40 text-slate-600 dark:text-slate-400 rounded-xl transition-all cursor-pointer shadow-sm border border-slate-200/40 dark:border-slate-800"
                               title="View Invoice Sheet"
                             >
                               <Eye size={14} />
@@ -652,15 +652,15 @@ export default function Invoices({
               </div>
 
               <div className="grid grid-cols-2 gap-8 border border-slate-300 dark:border-slate-800 p-4 bg-slate-50/50 dark:bg-slate-950/20 print:bg-white print:border-slate-400">
-                <div className="space-y-1.5 font-serif border-r border-slate-250/60 dark:border-slate-800 pr-4 print:border-slate-300">
-                  <p className="font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 border-b border-slate-250/60 dark:border-slate-800 pb-1 print:border-slate-300">From:</p>
+                <div className="space-y-1.5 font-serif border-r border-slate-200/60 dark:border-slate-800 pr-4 print:border-slate-300">
+                  <p className="font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 border-b border-slate-200/60 dark:border-slate-800 pb-1 print:border-slate-300">From:</p>
                   <p className="font-black text-slate-900 dark:text-slate-100 text-sm font-serif">{businessDetails.name || "STOCKFLOW SOLUTIONS"}</p>
                   <p className="dark:text-slate-400 leading-normal font-serif">{businessDetails.address}</p>
                   <p className=" dark:text-slate-400 font-serif">Email: {businessDetails.email}</p>
                   <p className=" dark:text-slate-400 font-serif">Ph: {businessDetails.phone}</p>
                 </div>
                 <div className="space-y-1.5 font-serif">
-                  <p className="font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 border-b border-slate-250/60 dark:border-slate-800 pb-1 print:border-slate-300">To:</p>
+                  <p className="font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 border-b border-slate-200/60 dark:border-slate-800 pb-1 print:border-slate-300">To:</p>
                   <p className="font-black text-slate-900 dark:text-slate-100 text-sm font-serif">{selectedInvoice.clientName}</p>
                   {selectedInvoice.clientCompany && (
                     <p className="font-bold text-slate-800 dark:text-slate-300 font-serif">{selectedInvoice.clientCompany}</p>
@@ -671,12 +671,12 @@ export default function Invoices({
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-8 py-2 border-b border-slate-200 dark:border-slate-850 pb-4 print:border-slate-300">
+              <div className="grid grid-cols-2 gap-8 py-2 border-b border-slate-200 dark:border-slate-800 pb-4 print:border-slate-300">
                 <div className="space-y-1 font-serif">
                   <p><span className="font-bold text-slate-700 dark:text-slate-400 uppercase">Invoice Number:</span> <span className="font-mono font-bold text-slate-900 dark:text-slate-200">{selectedInvoice.invoiceNumber}</span></p>
                 </div>
                 <div className="space-y-1 text-right font-serif">
-                  <p><span className="font-bold dark:text-slate-404 uppercase">Date of Issue:</span> {formatDate(selectedInvoice.invoiceDate)}</p>
+                  <p><span className="font-bold dark:text-slate-400 uppercase">Date of Issue:</span> {formatDate(selectedInvoice.invoiceDate)}</p>
                   <p><span className="font-bold dark:text-slate-400 uppercase">Payment Status:</span> <span className="font-extrabold uppercase italic text-slate-900 dark:text-slate-200">{selectedInvoice.status}</span></p>
                 </div>
               </div>
@@ -684,7 +684,7 @@ export default function Invoices({
               <div className="space-y-2">
                 <table className="w-full text-left border-collapse border border-slate-300 dark:border-slate-800 print:border-slate-400">
                   <thead>
-                    <tr className="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-305 font-bold uppercase tracking-wider border-b border-slate-300 dark:border-slate-800 print:bg-gray-100 print:border-slate-400">
+                    <tr className="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-300 font-bold uppercase tracking-wider border-b border-slate-300 dark:border-slate-800 print:bg-gray-100 print:border-slate-400">
                       <th className="border-r border-slate-300 dark:border-slate-800 px-4 py-2.5 print:border-slate-400 font-serif">Description of Goods</th>
                       <th className="border-r border-slate-300 dark:border-slate-800 px-4 py-2.5 text-center w-20 print:border-slate-400 font-serif">Qty</th>
                       <th className="border-r border-slate-300 dark:border-slate-800 px-4 py-2.5 text-right w-28 print:border-slate-400 font-serif">Unit Price</th>

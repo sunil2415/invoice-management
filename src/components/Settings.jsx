@@ -241,7 +241,7 @@ export default function Settings({
               placeholder="e.g. StockFlow Solutions Ltd."
               value={profileForm.name}
               onChange={(e) => setProfileForm({ ...profileForm, name: e.target.value })}
-              className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-205 focus:border-indigo-500/50 outline-none font-medium"
+              className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 focus:border-indigo-500/50 outline-none font-medium"
             />
           </div>
 
@@ -253,7 +253,7 @@ export default function Settings({
               placeholder="e.g. contact@business.com"
               value={profileForm.email}
               onChange={(e) => setProfileForm({ ...profileForm, email: e.target.value })}
-              className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-205 focus:border-indigo-500/50 outline-none font-medium"
+              className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 focus:border-indigo-500/50 outline-none font-medium"
             />
           </div>
 
@@ -265,7 +265,7 @@ export default function Settings({
               placeholder="e.g. +1 (555) 019-2834"
               value={profileForm.phone}
               onChange={(e) => setProfileForm({ ...profileForm, phone: e.target.value })}
-              className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-205 focus:border-indigo-500/50 outline-none font-medium"
+              className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 focus:border-indigo-500/50 outline-none font-medium"
             />
           </div>
 
@@ -277,7 +277,7 @@ export default function Settings({
               placeholder="e.g. 100 Innovation Way, Tech District, New York, NY 10001"
               value={profileForm.address}
               onChange={(e) => setProfileForm({ ...profileForm, address: e.target.value })}
-              className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-205 focus:border-indigo-500/50 outline-none font-medium"
+              className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 focus:border-indigo-500/50 outline-none font-medium"
             />
           </div>
 
@@ -314,7 +314,7 @@ export default function Settings({
                 Export Database
               </button>
 
-              <label className="flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-205 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs rounded-xl border border-slate-200 dark:border-slate-750 cursor-pointer transition-all">
+              <label className="flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs rounded-xl border border-slate-200 dark:border-slate-750 cursor-pointer transition-all">
                 <Upload size={14} />
                 Import Database
                 <input
@@ -345,21 +345,21 @@ export default function Settings({
                 <>
                   <button
                     onClick={handleExportProductsCSV}
-                    className="flex items-center gap-1.5 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-emerald-55 hover:text-emerald-700 hover:border-emerald-200 dark:hover:bg-emerald-950/20 dark:hover:text-emerald-400 dark:hover:border-emerald-900/30 text-slate-700 dark:text-slate-300 font-semibold text-xs rounded-xl border border-slate-200 dark:border-slate-750 transition-all cursor-pointer"
+                    className="flex items-center gap-1.5 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 dark:hover:bg-emerald-950/20 dark:hover:text-emerald-400 dark:hover:border-emerald-900/30 text-slate-700 dark:text-slate-300 font-semibold text-xs rounded-xl border border-slate-200 dark:border-slate-750 transition-all cursor-pointer"
                   >
                     <Download size={13} />
                     Products CSV
                   </button>
                   <button
                     onClick={handleExportClientsCSV}
-                    className="flex items-center gap-1.5 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-emerald-55 hover:text-emerald-700 hover:border-emerald-200 dark:hover:bg-emerald-955/20 dark:hover:text-emerald-400 dark:hover:border-emerald-900/30 text-slate-700 dark:text-slate-300 font-semibold text-xs rounded-xl border border-slate-200 dark:border-slate-755 transition-all cursor-pointer"
+                    className="flex items-center gap-1.5 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 dark:hover:bg-emerald-950/20 dark:hover:text-emerald-400 dark:hover:border-emerald-900/30 text-slate-700 dark:text-slate-300 font-semibold text-xs rounded-xl border border-slate-200 dark:border-slate-700 transition-all cursor-pointer"
                   >
                     <Download size={13} />
                     Clients CSV
                   </button>
                   <button
                     onClick={handleExportInvoicesCSV}
-                    className="flex items-center gap-1.5 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-emerald-55 hover:text-emerald-700 hover:border-emerald-200 dark:hover:bg-emerald-955/20 dark:hover:text-emerald-400 dark:hover:border-emerald-900/30 text-slate-700 dark:text-slate-300 font-semibold text-xs rounded-xl border border-slate-200 dark:border-slate-755 transition-all cursor-pointer"
+                    className="flex items-center gap-1.5 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 dark:hover:bg-emerald-950/20 dark:hover:text-emerald-400 dark:hover:border-emerald-900/30 text-slate-700 dark:text-slate-300 font-semibold text-xs rounded-xl border border-slate-200 dark:border-slate-700 transition-all cursor-pointer"
                   >
                     <Download size={13} />
                     Invoices CSV
@@ -368,7 +368,7 @@ export default function Settings({
               ) : (
                 <button
                   onClick={handleExportBookingsCSV}
-                  className="flex items-center gap-1.5 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-emerald-55 hover:text-emerald-700 hover:border-emerald-200 dark:hover:bg-emerald-955/20 dark:hover:text-emerald-400 dark:hover:border-emerald-900/30 text-slate-700 dark:text-slate-300 font-semibold text-xs rounded-xl border border-slate-200 dark:border-slate-755 transition-all cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 dark:hover:bg-emerald-950/20 dark:hover:text-emerald-400 dark:hover:border-emerald-900/30 text-slate-700 dark:text-slate-300 font-semibold text-xs rounded-xl border border-slate-200 dark:border-slate-700 transition-all cursor-pointer"
                 >
                   <Download size={13} />
                   Event Bookings CSV

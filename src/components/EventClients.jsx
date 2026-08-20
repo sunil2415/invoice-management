@@ -230,7 +230,7 @@ export default function EventClients({
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 print:hidden">
             <div>
-              <h1 className="text-2xl font-bold text-slate-905 dark:text-slate-100 tracking-tight">Wedding Event Bookings</h1>
+              <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">Wedding Event Bookings</h1>
               <p className="text-slate-500 dark:text-slate-400 mt-1 text-sm">Register wedding party details, collect advance deposits, and manage schedules.</p>
             </div>
             <button
@@ -251,7 +251,7 @@ export default function EventClients({
                 placeholder="Search by bride/groom name, venue..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-955 border border-slate-200 dark:border-slate-800 focus:border-indigo-500/50 rounded-xl text-sm text-slate-800 dark:text-slate-200 outline-none transition-all placeholder:text-slate-400"
+                className="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-indigo-500/50 rounded-xl text-sm text-slate-800 dark:text-slate-200 outline-none transition-all placeholder:text-slate-400"
               />
             </div>
             <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">
@@ -263,7 +263,7 @@ export default function EventClients({
           {filteredBookings.length === 0 ? (
             <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl py-16 text-center">
               <Users size={48} className="mx-auto text-slate-400 dark:text-slate-600 mb-3" />
-              <p className="text-slate-550 dark:text-slate-400 font-bold text-sm">No weddings booked</p>
+              <p className="text-slate-500 dark:text-slate-400 font-bold text-sm">No weddings booked</p>
               <p className="text-xs  dark:text-slate-500 mt-1">Book a wedding party order to begin tracking advances.</p>
             </div>
           ) : (
@@ -271,7 +271,7 @@ export default function EventClients({
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[1000px] text-left border-collapse">
                   <thead>
-                    <tr className="border-b border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/30 text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-405">
+                    <tr className="border-b border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/30 text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       <th className="px-6 py-4.5">Client / Venue</th>
                       <th className="px-6 py-4.5">Wedding Date</th>
                       <th className="px-6 py-4.5">Rituals</th>
@@ -293,14 +293,14 @@ export default function EventClients({
                           ref={isHighlighted ? highlightedRowRef : null}
                           className={`transition-all duration-500 ${isHighlighted
                             ? "bg-indigo-100/60 dark:bg-indigo-900/40 ring-1 ring-indigo-400 dark:ring-indigo-500"
-                            : "hover:bg-slate-50/30 dark:hover:bg-slate-850/10"
+                            : "hover:bg-slate-50/30 dark:hover:bg-slate-800/10"
                             }`}
                         >
                           <td className="px-6 py-4">
                             <div>
                               <div className="font-extrabold text-slate-900 dark:text-slate-100">{b.clientName}</div>
-                              <div className="text-xs text-slate-550 dark:text-slate-400 mt-0.5 flex items-center gap-1">
-                                <MapPin size={11} className="text-slate-405" />
+                              <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 flex items-center gap-1">
+                                <MapPin size={11} className="text-slate-400" />
                                 <span>{b.venue}</span>
                               </div>
                             </div>
@@ -321,7 +321,7 @@ export default function EventClients({
                                 ))}
                               </div>
                             ) : (
-                              <span className="text-xs text-slate-405 italic">No sub-events</span>
+                              <span className="text-xs text-slate-400 italic">No sub-events</span>
                             )}
                           </td>
                           <td className="px-6 py-4 text-right font-extrabold text-slate-900 dark:text-slate-150">
@@ -336,7 +336,7 @@ export default function EventClients({
                           <td className="px-6 py-4 whitespace-nowrap">
                             <span className={`text-[9px] font-extrabold px-2 py-0.5 rounded border uppercase
                               ${b.status === "Completed"
-                                ? "bg-emerald-50 text-emerald-700 border-emerald-100 dark:bg-emerald-955/20 dark:text-emerald-450 dark:border-emerald-900/30"
+                                ? "bg-emerald-50 text-emerald-700 border-emerald-100 dark:bg-emerald-950/20 dark:text-emerald-450 dark:border-emerald-900/30"
                                 : b.status === "Cancelled"
                                   ? "bg-red-50 text-red-705 border-red-100 dark:bg-red-955/20 dark:text-red-400 dark:border-red-900/30"
                                   : "bg-indigo-50 text-indigo-700 border-indigo-100 dark:bg-indigo-950/20 dark:text-indigo-400 dark:border-indigo-900/30"
@@ -351,14 +351,14 @@ export default function EventClients({
                                 setSelectedBooking(b);
                                 setViewMode("invoice");
                               }}
-                              className="p-2 bg-slate-100 dark:bg-slate-805 hover:bg-indigo-55 hover:text-indigo-600 dark:hover:bg-indigo-950/40 text-slate-600 dark:text-slate-400 rounded-xl transition-all cursor-pointer shadow-sm border border-slate-200/40 dark:border-slate-800"
+                              className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-indigo-50 hover:text-indigo-600 dark:hover:bg-indigo-950/40 text-slate-600 dark:text-slate-400 rounded-xl transition-all cursor-pointer shadow-sm border border-slate-200/40 dark:border-slate-800"
                               title="View Invoice Sheet"
                             >
                               <Eye size={13} />
                             </button>
                             <button
                               onClick={() => handleOpenEdit(b)}
-                              className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-indigo-55 hover:text-indigo-650 dark:hover:bg-indigo-955/40 text-slate-600 dark:text-slate-400 rounded-xl transition-all cursor-pointer shadow-sm border border-slate-200/40 dark:border-slate-800"
+                              className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-indigo-50 hover:text-indigo-650 dark:hover:bg-indigo-955/40 text-slate-600 dark:text-slate-400 rounded-xl transition-all cursor-pointer shadow-sm border border-slate-200/40 dark:border-slate-800"
                               title="Edit Event Booking"
                             >
                               <Edit2 size={13} />
@@ -413,7 +413,7 @@ export default function EventClients({
 
                 <button
                   onClick={() => window.print()}
-                  className="px-4.5 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-205 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all cursor-pointer border border-slate-200 dark:border-slate-750"
+                  className="px-4.5 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all cursor-pointer border border-slate-200 dark:border-slate-750"
                 >
                   <Printer size={13} />
                   Print Invoice
@@ -468,7 +468,7 @@ export default function EventClients({
                           <th className="py-2">Description Notes</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-205 dark:divide-slate-800">
+                      <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
                         {subEventsList.map((se, idx) => (
                           <tr key={idx}>
                             <td className="py-3 font-bold">{se.name}</td>
@@ -533,7 +533,7 @@ export default function EventClients({
               </h2>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-405 hover:text-slate-700 rounded-lg transition-colors"
+                className="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 rounded-lg transition-colors"
               >
                 <X size={18} />
               </button>
@@ -543,37 +543,37 @@ export default function EventClients({
             <form onSubmit={handleSubmit} className="p-6 space-y-4 max-h-[70vh] overflow-y-auto">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-550 dark:text-slate-400">Client / Bride &amp; Groom Name</label>
+                  <label className="text-xs font-semibold text-slate-500 dark:text-slate-400">Client / Bride &amp; Groom Name</label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. Riya & Amit Wedding"
                     value={formData.clientName}
                     onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
-                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-955 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-850 dark:text-slate-200 placeholder:text-slate-400 focus:border-indigo-500/50 outline-none"
+                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 placeholder:text-slate-400 focus:border-indigo-500/50 outline-none"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-550 dark:text-slate-400">Wedding Date</label>
+                  <label className="text-xs font-semibold text-slate-500 dark:text-slate-400">Wedding Date</label>
                   <input
                     type="date"
                     required
                     value={formData.weddingDate}
                     onChange={(e) => setFormData({ ...formData, weddingDate: e.target.value })}
-                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-202 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 outline-none"
+                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 outline-none"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-550 dark:text-slate-400">Email (Optional)</label>
+                  <label className="text-xs font-semibold text-slate-500 dark:text-slate-400">Email (Optional)</label>
                   <input
                     type="email"
                     placeholder="client@gmail.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-955 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-202 focus:border-indigo-500/50 outline-none"
+                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 focus:border-indigo-500/50 outline-none"
                   />
                 </div>
                 <div className="space-y-1">
@@ -583,7 +583,7 @@ export default function EventClients({
                     placeholder="e.g. +91 9876543210"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-955 border border-slate-202 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-202 focus:border-indigo-500/50 outline-none"
+                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 focus:border-indigo-500/50 outline-none"
                   />
                 </div>
               </div>
@@ -594,7 +594,7 @@ export default function EventClients({
                   <select
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-955 border border-slate-202 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 outline-none"
+                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 outline-none"
                   >
                     <option value="Booked">Booked</option>
                     <option value="Completed">Completed</option>
@@ -609,7 +609,7 @@ export default function EventClients({
                     placeholder="e.g. Radisson Blu Resort, Udaipur"
                     value={formData.venue}
                     onChange={(e) => setFormData({ ...formData, venue: e.target.value })}
-                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-202 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 placeholder:text-slate-400 focus:border-indigo-500/50 outline-none"
+                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 placeholder:text-slate-400 focus:border-indigo-500/50 outline-none"
                   />
                 </div>
               </div>
@@ -623,7 +623,7 @@ export default function EventClients({
                     required
                     value={formData.totalBudget}
                     onChange={(e) => setFormData({ ...formData, totalBudget: e.target.value })}
-                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-955 border border-slate-202 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 focus:border-indigo-500/50 outline-none"
+                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 focus:border-indigo-500/50 outline-none"
                   />
                 </div>
                 <div className="space-y-1">
@@ -635,7 +635,7 @@ export default function EventClients({
                     required
                     value={formData.advancePaid}
                     onChange={(e) => setFormData({ ...formData, advancePaid: e.target.value })}
-                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-202 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 focus:border-indigo-500/50 outline-none"
+                    className="w-full px-3.5 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm text-slate-800 dark:text-slate-200 focus:border-indigo-500/50 outline-none"
                   />
                 </div>
               </div>
@@ -643,9 +643,9 @@ export default function EventClients({
 
 
               {/* Sub-Events Selection Grid */}
-              <div className="border border-slate-250 dark:border-slate-800 bg-slate-50/40 dark:bg-slate-955/20 rounded-2xl p-4.5 space-y-3.5">
+              <div className="border border-slate-200 dark:border-slate-800 bg-slate-50/40 dark:bg-slate-950/20 rounded-2xl p-4.5 space-y-3.5">
                 <div className="flex justify-between items-center">
-                  <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-455">Select rituals / sub-events</h4>
+                  <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-500">Select rituals / sub-events</h4>
                   <span className="text-[10px] text-slate-400 font-bold">Check rituals to customize details</span>
                 </div>
 
@@ -685,7 +685,7 @@ export default function EventClients({
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-805 dark:hover:bg-slate-700 text-slate-705 dark:text-slate-350 font-semibold text-sm rounded-xl transition-all cursor-pointer"
+                  className="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-350 font-semibold text-sm rounded-xl transition-all cursor-pointer"
                 >
                   Cancel
                 </button>

@@ -25,14 +25,14 @@ export default function EventTemplates({ templates, setTemplates }) {
     <div className="space-y-6 text-slate-800 dark:text-slate-100">
       <div>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">Event Services & Ritual Templates</h1>
-        <p className="text-slate-500 dark:text-slate-405 mt-1 text-sm">
+        <p className="text-slate-500 dark:text-slate-400 mt-1 text-sm">
           Define standard wedding sub-events (e.g. Haldi, Sangeet) that can be checked and tracked during client bookings.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Add Template Card */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-2xl p-6 shadow-sm self-start">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm self-start">
           <h2 className="text-sm font-bold text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
             <Plus size={16} className="text-indigo-600 dark:text-indigo-400" />
             Add Custom Service
@@ -58,7 +58,7 @@ export default function EventTemplates({ templates, setTemplates }) {
         </div>
 
         {/* Existing Templates Grid */}
-        <div className="md:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-2xl p-6 shadow-sm">
+        <div className="md:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
           <h2 className="text-sm font-bold text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
             <Sparkles size={16} className="text-indigo-650 dark:text-indigo-400" />
             Active Wedding Ritual Services

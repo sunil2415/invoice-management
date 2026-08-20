@@ -635,7 +635,7 @@ export default function Dashboard({ products, clients, invoices, setActiveTab, o
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-mono font-bold text-slate-900 dark:text-slate-200">{inv.invoiceNumber}</span>
-                        <span className="text-[10px] text-slate-405 dark:text-slate-500 font-semibold">{inv.invoiceDate ? inv.invoiceDate.split("-").reverse().join("-") : ""}</span>
+                        <span className="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">{inv.invoiceDate ? inv.invoiceDate.split("-").reverse().join("-") : ""}</span>
                       </div>
                       <h3 className="font-extrabold text-slate-950 dark:text-slate-100 text-sm mt-1">{inv.clientName}</h3>
                       <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">{totalItems} units sold</p>
@@ -674,7 +674,7 @@ export default function Dashboard({ products, clients, invoices, setActiveTab, o
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 rounded-full mb-3 animate-pulse">
                   <Boxes size={24} />
                 </div>
-                <p className="text-slate-655 dark:text-slate-200 text-xs font-bold">Stock levels optimal</p>
+                <p className="text-slate-600 dark:text-slate-200 text-xs font-bold">Stock levels optimal</p>
                 <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">All products have sufficient units in stock.</p>
               </div>
             ) : (

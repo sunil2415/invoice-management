@@ -67,7 +67,7 @@ export default function EventCalendar({ bookings, setActiveTab, setHighlightedBo
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">Wedding Planners Calendar</h1>
-        <p className="text-slate-500 dark:text-slate-405 mt-1 text-sm">Track wedding dates and manage location schedules.</p>
+        <p className="text-slate-500 dark:text-slate-400 mt-1 text-sm">Track wedding dates and manage location schedules.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -97,7 +97,7 @@ export default function EventCalendar({ bookings, setActiveTab, setHighlightedBo
             </div>
 
             {/* Weekdays */}
-            <div className="grid grid-cols-7 text-center text-xs font-bold text-slate-405 dark:text-slate-500 uppercase tracking-wider mb-3">
+            <div className="grid grid-cols-7 text-center text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">
               <div>Sun</div>
               <div>Mon</div>
               <div>Tue</div>
@@ -114,7 +114,7 @@ export default function EventCalendar({ bookings, setActiveTab, setHighlightedBo
                   return (
                     <div 
                       key={`empty-${idx}`} 
-                      className="min-h-[75px] md:min-h-[95px] bg-slate-50/50 dark:bg-slate-955/20 border-r border-b border-slate-200/80 dark:border-slate-800"
+                      className="min-h-[75px] md:min-h-[95px] bg-slate-50/50 dark:bg-slate-950/20 border-r border-b border-slate-200/80 dark:border-slate-800"
                     />
                   );
                 }
@@ -136,7 +136,7 @@ export default function EventCalendar({ bookings, setActiveTab, setHighlightedBo
                   >
                     <span 
                       className={`text-xs font-semibold w-6 h-6 flex items-center justify-center rounded-full
-                        ${isToday ? "bg-indigo-600 text-white font-bold" : "text-slate-850 dark:text-slate-200"}
+                        ${isToday ? "bg-indigo-600 text-white font-bold" : "text-slate-800 dark:text-slate-200"}
                         ${isSelected && !isToday ? "bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-105" : ""}`}
                     >
                       {day}
@@ -188,7 +188,7 @@ export default function EventCalendar({ bookings, setActiveTab, setHighlightedBo
                         if (setHighlightedBookingId) setHighlightedBookingId(evt.bookingId);
                         if (setActiveTab) setActiveTab("event_clients");
                       }}
-                      className="p-3.5 rounded-xl border border-slate-150 dark:border-slate-805 bg-slate-50/50 dark:bg-slate-950/10 text-xs space-y-2.5 cursor-pointer hover:border-indigo-300 dark:hover:border-indigo-500/50 hover:shadow-sm transition-all"
+                      className="p-3.5 rounded-xl border border-slate-150 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/10 text-xs space-y-2.5 cursor-pointer hover:border-indigo-300 dark:hover:border-indigo-500/50 hover:shadow-sm transition-all"
                     >
                       <div className="flex justify-between items-start">
                         <div>
