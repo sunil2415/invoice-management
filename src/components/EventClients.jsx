@@ -20,9 +20,9 @@ import {
   CreditCard
 } from "lucide-react";
 
-export default function EventClients({ 
-  bookings, 
-  setBookings, 
+export default function EventClients({
+  bookings,
+  setBookings,
   templates = [],
   businessDetails = {},
   highlightedBookingId,
@@ -264,12 +264,12 @@ export default function EventClients({
             <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl py-16 text-center">
               <Users size={48} className="mx-auto text-slate-400 dark:text-slate-600 mb-3" />
               <p className="text-slate-550 dark:text-slate-400 font-bold text-sm">No weddings booked</p>
-              <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">Book a wedding party order to begin tracking advances.</p>
+              <p className="text-xs  dark:text-slate-500 mt-1">Book a wedding party order to begin tracking advances.</p>
             </div>
           ) : (
             <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse">
+                <table className="w-full min-w-[1000px] text-left border-collapse">
                   <thead>
                     <tr className="border-b border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/30 text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-405">
                       <th className="px-6 py-4.5">Client / Venue</th>
@@ -288,14 +288,13 @@ export default function EventClients({
                       const subEventsList = b.subEvents || [];
                       const isHighlighted = b.id === highlightedBookingId;
                       return (
-                        <tr 
-                          key={b.id} 
+                        <tr
+                          key={b.id}
                           ref={isHighlighted ? highlightedRowRef : null}
-                          className={`transition-all duration-500 ${
-                            isHighlighted 
-                              ? "bg-indigo-100/60 dark:bg-indigo-900/40 ring-1 ring-indigo-400 dark:ring-indigo-500" 
-                              : "hover:bg-slate-50/30 dark:hover:bg-slate-850/10"
-                          }`}
+                          className={`transition-all duration-500 ${isHighlighted
+                            ? "bg-indigo-100/60 dark:bg-indigo-900/40 ring-1 ring-indigo-400 dark:ring-indigo-500"
+                            : "hover:bg-slate-50/30 dark:hover:bg-slate-850/10"
+                            }`}
                         >
                           <td className="px-6 py-4">
                             <div>
@@ -438,24 +437,24 @@ export default function EventClients({
                   </div>
                   <div className="flex flex-col sm:flex-row justify-between text-xs gap-10 pb-6 border-b border-double border-slate-900/50">
                     <div className="space-y-1.5 text-left flex-1">
-                      <p className="font-bold uppercase tracking-wider mb-2 text-slate-400 dark:text-slate-500">From</p>
-                      <h4 className="text-lg font-bold uppercase tracking-widest text-slate-900 dark:text-slate-100">{businessDetails?.name || "Rudra Wedding Solution"}</h4>
-                      {businessDetails?.phone && <p className="text-xs text-slate-500 font-semibold">{businessDetails.phone}</p>}
-                      <p className="text-xs text-slate-500">{businessDetails?.email || "Ankitch45601@gmail.com"}</p>
-                      {businessDetails?.address && <p className="text-xs text-slate-500 whitespace-pre-wrap">{businessDetails.address}</p>}
+                      <p className="font-bold uppercase tracking-wider mb-2  dark:text-slate-500">From</p>
+                      <h4 className="text-lg font-bold uppercase tracking-widest  dark:text-slate-100">{businessDetails?.name || "Rudra Wedding Solution"}</h4>
+                      {businessDetails?.phone && <p className="text-xs  font-semibold">{businessDetails.phone}</p>}
+                      <p className="text-xs ">{businessDetails?.email || "Ankitch45601@gmail.com"}</p>
+                      {businessDetails?.address && <p className="text-xs ">{businessDetails.address}</p>}
                       <div className="pt-4 space-y-1">
-                        <p className="text-slate-500">Status: <span className="font-bold uppercase text-slate-900 dark:text-slate-100">{selectedBooking.status}</span></p>
+                        <p className="">Status: <span className="font-bold uppercase text-slate-900 dark:text-slate-100">{selectedBooking.status}</span></p>
                       </div>
                     </div>
 
                     <div className="space-y-1.5 text-left sm:text-right flex-1">
-                      <p className="font-bold uppercase tracking-wider mb-2 text-slate-400 dark:text-slate-500">Billed To</p>
-                      <p className="text-base font-bold text-slate-900 dark:text-slate-100">{selectedBooking.clientName}</p>
-                      {selectedBooking.email && <p className="text-slate-500 uppercase">{selectedBooking.email}</p>}
-                      {selectedBooking.phone && <p className="text-slate-500">{selectedBooking.phone}</p>}
+                      <p className="font-bold uppercase tracking-wider mb-2  dark:text-slate-500">Billed To</p>
+                      <p className="text-base font-bold  dark:text-slate-100">{selectedBooking.clientName}</p>
+                      {selectedBooking.email && <p className="">{selectedBooking.email}</p>}
+                      {selectedBooking.phone && <p className="">{selectedBooking.phone}</p>}
                       <div className="pt-2 flex flex-col sm:items-end">
-                        <p className="text-slate-500 mt-1">Wedding Date: <span className="font-bold text-sm text-slate-900 dark:text-slate-100 dark:bg-amber-700/50 px-1.5 py-0.5 rounded">{formatDate(selectedBooking.weddingDate)}</span></p>
-                        <p className="text-slate-500 mt-1">Venue: <span className="font-bold text-sm text-slate-900 dark:text-slate-100 dark:bg-amber-700/50 px-1.5 py-0.5 rounded">{selectedBooking.venue}</span></p>
+                        <p className=" mt-1">Wedding Date: <span className="font-bold text-sm text-slate-900 dark:text-slate-100 dark:bg-amber-700/50 px-1.5 py-0.5 rounded">{formatDate(selectedBooking.weddingDate)}</span></p>
+                        <p className=" mt-1">Venue: <span className="font-bold text-sm text-slate-900 dark:text-slate-100 dark:bg-amber-700/50 px-1.5 py-0.5 rounded">{selectedBooking.venue}</span></p>
                       </div>
                     </div>
                   </div>
@@ -485,16 +484,16 @@ export default function EventClients({
                     <div className="flex-1 flex gap-8 items-start">
                       <div className="flex-1">
                         <p className="text-sm font-bold uppercase tracking-wider mb-1.5">Terms & Conditions</p>
-                        <ul className="text-xs text-slate-500 list-disc list-inside space-y-1">
+                        <ul className="text-xs list-disc list-inside space-y-1">
                           <li>Advance payment is non-refundable.</li>
                           <li>Balance amount must be paid before the main event.</li>
                           <li>All disputes are subject to local jurisdiction.</li>
                         </ul>
                       </div>
                       <div className="w-24 h-24 shrink-0 mt-1 bg-white p-1 rounded border border-slate-200 dark:border-slate-800 shadow-sm">
-                        <img 
-                          src={qrCodeImage} 
-                          alt="Payment QR Code" 
+                        <img
+                          src={qrCodeImage}
+                          alt="Payment QR Code"
                           className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal"
                         />
                       </div>

@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import qrCodeImage from "../assets/IMG_8423.jpeg";
-import { 
-  Plus, 
-  Search, 
-  Eye, 
-  Printer, 
-  X, 
+import {
+  Plus,
+  Search,
+  Eye,
+  Printer,
+  X,
   Trash2,
   Calendar,
   Sparkles,
@@ -15,12 +15,12 @@ import {
   ShoppingCart
 } from "lucide-react";
 
-export default function Invoices({ 
-  invoices, 
-  setInvoices, 
-  products, 
-  setProducts, 
-  clients, 
+export default function Invoices({
+  invoices,
+  setInvoices,
+  products,
+  setProducts,
+  clients,
   businessDetails,
   invoiceViewConfig,
   setInvoiceViewConfig,
@@ -37,7 +37,7 @@ export default function Invoices({
   useEffect(() => {
     if (highlightedInvoiceId) {
       setViewMode("list");
-      
+
       const scrollTimer = setTimeout(() => {
         if (listRefs.current[highlightedInvoiceId]) {
           listRefs.current[highlightedInvoiceId].scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -77,9 +77,9 @@ export default function Invoices({
   useEffect(() => {
     if (invoiceViewConfig && invoiceViewConfig.viewMode === "create") {
       setViewMode("create");
-      
+
       const newInvoiceDate = invoiceViewConfig.invoiceDate || new Date().toISOString().split('T')[0];
-      
+
       setInvoiceForm(prev => ({
         ...prev,
         invoiceDate: newInvoiceDate,
@@ -177,7 +177,7 @@ export default function Invoices({
     setProducts(updatedProducts);
     setInvoices([newInvoice, ...invoices]);
     setViewMode("list");
-    
+
     setInvoiceForm({
       clientId: "",
       invoiceDate: new Date().toISOString().split('T')[0],
@@ -236,9 +236,9 @@ export default function Invoices({
 
   const filteredInvoices = invoices.filter(inv => {
     const matchSearch = inv.clientName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                        inv.invoiceNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                        (inv.clientCompany && inv.clientCompany.toLowerCase().includes(searchQuery.toLowerCase()));
-    
+      inv.invoiceNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (inv.clientCompany && inv.clientCompany.toLowerCase().includes(searchQuery.toLowerCase()));
+
     const matchStatus = statusFilter === "all" || inv.status === statusFilter;
     return matchSearch && matchStatus;
   });
@@ -277,7 +277,7 @@ export default function Invoices({
                 className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-indigo-500/50 rounded-xl text-sm text-slate-800 dark:text-slate-200 outline-none transition-all placeholder:text-slate-400 font-medium"
               />
             </div>
-            
+
             {/* Filter buttons */}
             <div className="flex flex-wrap gap-2 w-full md:w-auto">
               {["all", "paid", "unpaid"].map((st) => (
@@ -285,8 +285,8 @@ export default function Invoices({
                   key={st}
                   onClick={() => setStatusFilter(st)}
                   className={`text-xs font-bold px-3.5 py-2 rounded-xl border capitalize transition-all cursor-pointer
-                    ${statusFilter === st 
-                      ? "bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 border-indigo-200/80 dark:border-indigo-900/55 shadow-sm" 
+                    ${statusFilter === st
+                      ? "bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 border-indigo-200/80 dark:border-indigo-900/55 shadow-sm"
                       : "bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border-slate-200/40 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-750 hover:text-slate-900 dark:hover:text-white"}`}
                 >
                   {st}
@@ -305,7 +305,7 @@ export default function Invoices({
               </div>
             ) : (
               <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse">
+                <table className="w-full min-w-[900px] text-left border-collapse">
                   <thead>
                     <tr className="border-b border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/30 text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       <th className="px-6 py-4.5">Invoice #</th>
@@ -322,14 +322,13 @@ export default function Invoices({
                       const isPaid = inv.status === "paid";
 
                       return (
-                        <tr 
-                          key={inv.id} 
+                        <tr
+                          key={inv.id}
                           ref={(el) => (listRefs.current[inv.id] = el)}
-                          className={`transition-colors ${
-                            highlightedInvoiceId === inv.id 
-                              ? "bg-indigo-50 dark:bg-indigo-900/40 ring-1 ring-indigo-500/50 shadow-inner" 
-                              : "hover:bg-slate-50/30 dark:hover:bg-slate-800/10"
-                          }`}
+                          className={`transition-colors ${highlightedInvoiceId === inv.id
+                            ? "bg-indigo-50 dark:bg-indigo-900/40 ring-1 ring-indigo-500/50 shadow-inner"
+                            : "hover:bg-slate-50/30 dark:hover:bg-slate-800/10"
+                            }`}
                         >
                           <td className="px-6 py-4.5 font-mono font-bold text-slate-900 dark:text-slate-200 text-xs">{inv.invoiceNumber}</td>
                           <td className="px-6 py-4.5">
@@ -352,8 +351,8 @@ export default function Invoices({
                           </td>
                           <td className="px-6 py-4.5">
                             <span className={`text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border
-                              ${isPaid 
-                                ? "bg-emerald-50 text-emerald-700 border-emerald-100 dark:bg-emerald-950/20 dark:text-emerald-400 dark:border-emerald-900/30" 
+                              ${isPaid
+                                ? "bg-emerald-50 text-emerald-700 border-emerald-100 dark:bg-emerald-950/20 dark:text-emerald-400 dark:border-emerald-900/30"
                                 : "bg-amber-50 text-amber-700 border-amber-100 dark:bg-amber-955/20 dark:text-amber-400 dark:border-amber-900/30 animate-pulse"}`}
                             >
                               {isPaid ? "Paid" : "Unpaid"}
@@ -460,13 +459,13 @@ export default function Invoices({
                 <span className="text-[10px] text-slate-400 dark:text-slate-500 font-bold">Type direct quantities below to add to bill</span>
               </div>
 
-              <div className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200/80 dark:border-slate-800 shadow-sm">
+              <div className="bg-white dark:bg-slate-900 rounded-xl overflow-x-auto border border-slate-200/80 dark:border-slate-800 shadow-sm">
                 {products.length === 0 ? (
                   <div className="text-center py-8 text-xs text-slate-400 dark:text-slate-500 font-medium">
                     No products available in stock. Add products under Stock Inventory first.
                   </div>
                 ) : (
-                  <table className="w-full text-left text-xs border-collapse">
+                  <table className="w-full min-w-[700px] text-left text-xs border-collapse">
                     <thead>
                       <tr className="bg-slate-50/80 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 font-extrabold uppercase tracking-wider text-[9px]">
                         <th className="px-5 py-3">Product Name</th>
@@ -489,8 +488,8 @@ export default function Invoices({
                             <td className="px-5 py-3.5 font-mono text-[10px] text-slate-500 dark:text-slate-400">{p.sku}</td>
                             <td className="px-5 py-3.5 text-center">
                               <span className={`text-[10px] font-bold px-2 py-0.5 rounded
-                                ${p.totalStock === 0 
-                                  ? "bg-red-50 text-red-700 dark:bg-red-950/20 dark:text-red-400 border border-red-100 dark:border-red-900/30" 
+                                ${p.totalStock === 0
+                                  ? "bg-red-50 text-red-700 dark:bg-red-950/20 dark:text-red-400 border border-red-100 dark:border-red-900/30"
                                   : p.totalStock <= (p.lowStockThreshold !== undefined ? p.lowStockThreshold : 5)
                                     ? "bg-amber-50 text-amber-700 dark:bg-amber-950/20 dark:text-amber-400 border border-amber-100 dark:border-amber-900/30"
                                     : "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-transparent"}`}
@@ -554,7 +553,7 @@ export default function Invoices({
               <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-5 flex flex-col justify-between shadow-sm">
                 <div>
                   <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3.5">Invoice Value</h4>
-                  
+
                   <div className="space-y-3 text-xs text-slate-700 dark:text-slate-300 font-semibold">
                     <div className="flex justify-between">
                       <span className="text-slate-500 dark:text-slate-400">Items count total:</span>
@@ -614,8 +613,8 @@ export default function Invoices({
                 <button
                   onClick={() => handleTogglePaymentStatus(selectedInvoice.id)}
                   className={`px-4.5 py-2 text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all shadow-sm border cursor-pointer active:scale-[0.98]
-                    ${isPaid 
-                      ? "bg-amber-50 dark:bg-amber-955/20 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-900/35 hover:bg-amber-100" 
+                    ${isPaid
+                      ? "bg-amber-50 dark:bg-amber-955/20 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-900/35 hover:bg-amber-100"
                       : "bg-emerald-600 hover:bg-emerald-505 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white border-emerald-600 dark:border-emerald-700 shadow-md"}`}
                 >
                   <CreditCard size={13} />
@@ -638,106 +637,106 @@ export default function Invoices({
               </div>
             </div>
             {/* CLASSIC TEMPLATE */}
-                <div className="bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 p-6 sm:p-10 space-y-8 text-xs font-serif print:border-slate-400 print:p-0 print:m-0 text-slate-900 dark:text-slate-200 transition-all duration-200">
-                  <div className="text-center space-y-2 border-b-4 border-double border-slate-800 dark:border-slate-700 pb-6">
-                    <h2 className="text-2xl font-extrabold uppercase tracking-tight text-slate-900 dark:text-slate-100 font-serif">
-                      {businessDetails.name || "STOCKFLOW SOLUTIONS"}
-                    </h2>
-                    <p className="italic text-slate-600 dark:text-slate-400 font-serif text-xs">
-                      {businessDetails.address} &bull; Email: {businessDetails.email} &bull; Tel: {businessDetails.phone}
+            <div className="bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 p-6 sm:p-10 space-y-8 text-xs font-serif print:border-slate-400 print:p-0 print:m-0 text-slate-900 dark:text-slate-200 transition-all duration-200">
+              <div className="text-center space-y-2 border-b-4 border-double border-slate-800 dark:border-slate-700 pb-6">
+                <h2 className="text-2xl font-extrabold uppercase tracking-tight text-slate-900 dark:text-slate-100 font-serif">
+                  {businessDetails.name || "STOCKFLOW SOLUTIONS"}
+                </h2>
+                <p className="italic dark:text-slate-400 font-serif text-xs">
+                  {businessDetails.address} &bull; Email: {businessDetails.email} &bull; Tel: {businessDetails.phone}
+                </p>
+              </div>
+
+              <div className="text-center">
+                <h3 className="text-lg font-bold tracking-widest text-slate-900 dark:text-slate-100 uppercase font-serif">SALES INVOICE</h3>
+              </div>
+
+              <div className="grid grid-cols-2 gap-8 border border-slate-300 dark:border-slate-800 p-4 bg-slate-50/50 dark:bg-slate-950/20 print:bg-white print:border-slate-400">
+                <div className="space-y-1.5 font-serif border-r border-slate-250/60 dark:border-slate-800 pr-4 print:border-slate-300">
+                  <p className="font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 border-b border-slate-250/60 dark:border-slate-800 pb-1 print:border-slate-300">From:</p>
+                  <p className="font-black text-slate-900 dark:text-slate-100 text-sm font-serif">{businessDetails.name || "STOCKFLOW SOLUTIONS"}</p>
+                  <p className="dark:text-slate-400 leading-normal font-serif">{businessDetails.address}</p>
+                  <p className=" dark:text-slate-400 font-serif">Email: {businessDetails.email}</p>
+                  <p className=" dark:text-slate-400 font-serif">Ph: {businessDetails.phone}</p>
+                </div>
+                <div className="space-y-1.5 font-serif">
+                  <p className="font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 border-b border-slate-250/60 dark:border-slate-800 pb-1 print:border-slate-300">To:</p>
+                  <p className="font-black text-slate-900 dark:text-slate-100 text-sm font-serif">{selectedInvoice.clientName}</p>
+                  {selectedInvoice.clientCompany && (
+                    <p className="font-bold text-slate-800 dark:text-slate-300 font-serif">{selectedInvoice.clientCompany}</p>
+                  )}
+                  <p className=" leading-normal font-serif">{clientDetails.address}</p>
+                  {clientDetails.email && <p className="dark:text-slate-400 font-serif">Email: {clientDetails.email}</p>}
+                  <p className=" dark:text-slate-400 font-serif">Ph: {clientDetails.phone}</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-8 py-2 border-b border-slate-200 dark:border-slate-850 pb-4 print:border-slate-300">
+                <div className="space-y-1 font-serif">
+                  <p><span className="font-bold text-slate-700 dark:text-slate-400 uppercase">Invoice Number:</span> <span className="font-mono font-bold text-slate-900 dark:text-slate-200">{selectedInvoice.invoiceNumber}</span></p>
+                </div>
+                <div className="space-y-1 text-right font-serif">
+                  <p><span className="font-bold dark:text-slate-404 uppercase">Date of Issue:</span> {formatDate(selectedInvoice.invoiceDate)}</p>
+                  <p><span className="font-bold dark:text-slate-400 uppercase">Payment Status:</span> <span className="font-extrabold uppercase italic text-slate-900 dark:text-slate-200">{selectedInvoice.status}</span></p>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <table className="w-full text-left border-collapse border border-slate-300 dark:border-slate-800 print:border-slate-400">
+                  <thead>
+                    <tr className="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-305 font-bold uppercase tracking-wider border-b border-slate-300 dark:border-slate-800 print:bg-gray-100 print:border-slate-400">
+                      <th className="border-r border-slate-300 dark:border-slate-800 px-4 py-2.5 print:border-slate-400 font-serif">Description of Goods</th>
+                      <th className="border-r border-slate-300 dark:border-slate-800 px-4 py-2.5 text-center w-20 print:border-slate-400 font-serif">Qty</th>
+                      <th className="border-r border-slate-300 dark:border-slate-800 px-4 py-2.5 text-right w-28 print:border-slate-400 font-serif">Unit Price</th>
+                      <th className="px-4 py-2.5 text-right w-28 font-serif">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-300 dark:divide-slate-800 dark:text-slate-300">
+                    {selectedInvoice.items.map((item, idx) => {
+                      const subtotal = item.quantity * item.unitPrice;
+                      return (
+                        <tr key={idx} className="font-serif">
+                          <td className="border-r border-slate-300 dark:border-slate-800 px-4 py-3 print:border-slate-400 font-bold">{item.productName}</td>
+                          <td className="border-r border-slate-300 dark:border-slate-800 px-4 py-3 text-center print:border-slate-400">{item.quantity}</td>
+                          <td className="border-r border-slate-300 dark:border-slate-800 px-4 py-3 text-right print:border-slate-400">₹{item.unitPrice.toFixed(2)}</td>
+                          <td className="px-4 py-3 text-right font-bold text-slate-900 dark:text-slate-100">₹{subtotal.toFixed(2)}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="flex flex-col sm:flex-row justify-between items-end gap-6 pt-6 border-t border-double border-slate-900/50 font-serif">
+                <div className="flex-1 flex gap-8 items-start">
+                  <div className="flex-1 space-y-2">
+                    <p className="font-bold text-slate-700 dark:text-slate-400 uppercase tracking-wider mb-1.5">Declaration & Terms</p>
+                    <p className="text-[10px] dark:text-slate-400 italic leading-relaxed pt-2">
+                      {selectedInvoice.notes || "Goods once sold will not be taken back. Final settlement parameter details apply."}
                     </p>
                   </div>
-
-                  <div className="text-center">
-                    <h3 className="text-lg font-bold tracking-widest text-slate-900 dark:text-slate-100 uppercase font-serif">SALES INVOICE</h3>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-8 border border-slate-300 dark:border-slate-800 p-4 bg-slate-50/50 dark:bg-slate-950/20 print:bg-white print:border-slate-400">
-                    <div className="space-y-1.5 font-serif border-r border-slate-250/60 dark:border-slate-800 pr-4 print:border-slate-300">
-                      <p className="font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 border-b border-slate-250/60 dark:border-slate-800 pb-1 print:border-slate-300">From:</p>
-                      <p className="font-black text-slate-900 dark:text-slate-100 text-sm font-serif">{businessDetails.name || "STOCKFLOW SOLUTIONS"}</p>
-                      <p className="text-slate-650 dark:text-slate-400 leading-normal font-serif">{businessDetails.address}</p>
-                      <p className="text-slate-650 dark:text-slate-400 font-serif">Email: {businessDetails.email}</p>
-                      <p className="text-slate-650 dark:text-slate-400 font-serif">Ph: {businessDetails.phone}</p>
-                    </div>
-                    <div className="space-y-1.5 font-serif">
-                      <p className="font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 border-b border-slate-250/60 dark:border-slate-800 pb-1 print:border-slate-300">To:</p>
-                      <p className="font-black text-slate-900 dark:text-slate-100 text-sm font-serif">{selectedInvoice.clientName}</p>
-                      {selectedInvoice.clientCompany && (
-                        <p className="font-bold text-slate-800 dark:text-slate-300 font-serif">{selectedInvoice.clientCompany}</p>
-                      )}
-                      <p className="text-slate-650 dark:text-slate-400 leading-normal font-serif">{clientDetails.address}</p>
-                      {clientDetails.email && <p className="text-slate-650 dark:text-slate-400 font-serif">Email: {clientDetails.email}</p>}
-                      <p className="text-slate-650 dark:text-slate-400 font-serif">Ph: {clientDetails.phone}</p>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-8 py-2 border-b border-slate-200 dark:border-slate-850 pb-4 print:border-slate-300">
-                    <div className="space-y-1 font-serif">
-                      <p><span className="font-bold text-slate-700 dark:text-slate-400 uppercase">Invoice Number:</span> <span className="font-mono font-bold text-slate-900 dark:text-slate-200">{selectedInvoice.invoiceNumber}</span></p>
-                    </div>
-                    <div className="space-y-1 text-right font-serif">
-                      <p><span className="font-bold text-slate-705 dark:text-slate-404 uppercase">Date of Issue:</span> {formatDate(selectedInvoice.invoiceDate)}</p>
-                      <p><span className="font-bold text-slate-700 dark:text-slate-400 uppercase">Payment Status:</span> <span className="font-extrabold uppercase italic text-slate-900 dark:text-slate-200">{selectedInvoice.status}</span></p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <table className="w-full text-left border-collapse border border-slate-300 dark:border-slate-800 print:border-slate-400">
-                      <thead>
-                        <tr className="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-305 font-bold uppercase tracking-wider border-b border-slate-300 dark:border-slate-800 print:bg-gray-100 print:border-slate-400">
-                          <th className="border-r border-slate-300 dark:border-slate-800 px-4 py-2.5 print:border-slate-400 font-serif">Description of Goods</th>
-                          <th className="border-r border-slate-300 dark:border-slate-800 px-4 py-2.5 text-center w-20 print:border-slate-400 font-serif">Qty</th>
-                          <th className="border-r border-slate-300 dark:border-slate-800 px-4 py-2.5 text-right w-28 print:border-slate-400 font-serif">Unit Price</th>
-                          <th className="px-4 py-2.5 text-right w-28 font-serif">Amount</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-slate-300 dark:divide-slate-800 text-slate-800 dark:text-slate-300">
-                        {selectedInvoice.items.map((item, idx) => {
-                          const subtotal = item.quantity * item.unitPrice;
-                          return (
-                            <tr key={idx} className="font-serif">
-                              <td className="border-r border-slate-300 dark:border-slate-800 px-4 py-3 print:border-slate-400 font-bold">{item.productName}</td>
-                              <td className="border-r border-slate-300 dark:border-slate-800 px-4 py-3 text-center print:border-slate-400">{item.quantity}</td>
-                              <td className="border-r border-slate-300 dark:border-slate-800 px-4 py-3 text-right print:border-slate-400">₹{item.unitPrice.toFixed(2)}</td>
-                              <td className="px-4 py-3 text-right font-bold text-slate-900 dark:text-slate-100">₹{subtotal.toFixed(2)}</td>
-                            </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row justify-between items-end gap-6 pt-6 border-t border-double border-slate-900/50 font-serif">
-                    <div className="flex-1 flex gap-8 items-start">
-                      <div className="flex-1 space-y-2">
-                        <p className="font-bold text-slate-700 dark:text-slate-400 uppercase tracking-wider mb-1.5">Declaration & Terms</p>
-                        <p className="text-[10px] text-slate-500 dark:text-slate-400 italic leading-relaxed pt-2">
-                          {selectedInvoice.notes || "Goods once sold will not be taken back. Final settlement parameter details apply."}
-                        </p>
-                      </div>
-                      <div className="w-24 h-24 shrink-0 mt-1 bg-white p-1 rounded border border-slate-200 dark:border-slate-800 shadow-sm">
-                        <img 
-                          src={qrCodeImage} 
-                          alt="Payment QR Code" 
-                          className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col items-end justify-end space-y-2 w-80">
-                      <div className="w-full border-t-2 border-slate-900 dark:border-slate-700 pt-3 flex justify-between items-center text-xs font-bold">
-                        <span className="uppercase text-slate-700 dark:text-slate-400">Subtotal:</span>
-                        <span>₹{selectedInvoice.totalAmount.toFixed(2)}</span>
-                      </div>
-                      <div className="w-full border-t border-b-4 border-double border-slate-900 dark:border-slate-700 py-2.5 flex justify-between items-center text-sm font-black">
-                        <span className="uppercase text-slate-900 dark:text-slate-100">Net Amount:</span>
-                        <span className="text-base text-slate-950 dark:text-slate-100">₹{selectedInvoice.totalAmount.toFixed(2)}</span>
-                      </div>
-                    </div>
+                  <div className="w-24 h-24 shrink-0 mt-1 bg-white p-1 rounded border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <img
+                      src={qrCodeImage}
+                      alt="Payment QR Code"
+                      className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal"
+                    />
                   </div>
                 </div>
+
+                <div className="flex flex-col items-end justify-end space-y-2 w-80">
+                  <div className="w-full border-t-2 border-slate-900 dark:border-slate-700 pt-3 flex justify-between items-center text-xs font-bold">
+                    <span className="uppercase text-slate-700 dark:text-slate-400">Subtotal:</span>
+                    <span>₹{selectedInvoice.totalAmount.toFixed(2)}</span>
+                  </div>
+                  <div className="w-full border-t border-b-4 border-double border-slate-900 dark:border-slate-700 py-2.5 flex justify-between items-center text-sm font-black">
+                    <span className="uppercase text-slate-900 dark:text-slate-100">Net Amount:</span>
+                    <span className="text-base text-slate-950 dark:text-slate-100">₹{selectedInvoice.totalAmount.toFixed(2)}</span>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         );
       })()}
     </div>
